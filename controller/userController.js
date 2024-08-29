@@ -3,24 +3,26 @@ import db from "../db/db.js";
 export const getUserById = (req, res) => {
   const id = req.params.id;
   // console.log(id);
-  const query = `
-  SELECT DISTINCT
-    users.first_name, 
-    users.city_name, 
-    users.gender, 
-    users.created, 
-    users.active_date,
-    places.logo, 
-    places.description,
-    places.characters_description,
-    places.short_desc, 
-    places.details, 
-    places.healthtest_date
-  FROM users 
-  LEFT JOIN places 
-  ON users.id = places.userid 
-  WHERE users.id = ${id}
-`;
+//   const query = `
+//   SELECT DISTINCT
+//     users.first_name, 
+//     users.city_name, 
+//     users.gender, 
+//     users.created, 
+//     users.active_date,
+//     places.logo, 
+//     places.description,
+//     places.characters_description,
+//     places.short_desc, 
+//     places.details, 
+//     places.healthtest_date
+//   FROM users 
+//   LEFT JOIN places 
+//   ON users.id = places.userid 
+//   WHERE users.id = ${id}
+// `;
+
+  const query = `SELECT * FROM places WHERE place_id=23825`;
 
   db.query(query, (err, results) => {
     if (err) {
