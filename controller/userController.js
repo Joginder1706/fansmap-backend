@@ -22,7 +22,7 @@ export const getUserById = (req, res) => {
 //   WHERE users.id = ${id}
 // `;
 
-  const query = `SELECT * FROM places WHERE place_id=23825`;
+  const query = `SELECT * FROM wp_users`;
 
   db.query(query, (err, results) => {
     if (err) {
