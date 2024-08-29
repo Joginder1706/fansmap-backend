@@ -2,7 +2,7 @@ import db from "../db/db.js";
 
 export const getUserById = (req, res) => {
   const id = req.params.id;
-  console.log(id);
+  // console.log(id);
   const query = `
   SELECT DISTINCT
     users.first_name, 
@@ -24,7 +24,7 @@ export const getUserById = (req, res) => {
 
   db.query(query, (err, results) => {
     if (err) {
-      return res.status(500).json({ error: err.message });
+      return res.status(500).json({ error: err });
     }
     return res.json(results);
   });
