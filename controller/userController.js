@@ -1,34 +1,33 @@
 import db from "../db/db.js";
 
 export const getUserById = (req, res) => {
-  return res.send("home page")
-//   const id = req.params.id;
-//   console.log(id);
-//   const query = `
-//   SELECT DISTINCT
-//     users.first_name, 
-//     users.city_name, 
-//     users.gender, 
-//     users.created, 
-//     users.active_date,
-//     places.logo, 
-//     places.description,
-//     places.characters_description,
-//     places.short_desc, 
-//     places.details, 
-//     places.healthtest_date
-//   FROM users 
-//   LEFT JOIN places 
-//   ON users.id = places.userid 
-//   WHERE users.id = ${id}
-// `;
+  const id = req.params.id;
+  console.log(id);
+  const query = `
+  SELECT DISTINCT
+    users.first_name, 
+    users.city_name, 
+    users.gender, 
+    users.created, 
+    users.active_date,
+    places.logo, 
+    places.description,
+    places.characters_description,
+    places.short_desc, 
+    places.details, 
+    places.healthtest_date
+  FROM users 
+  LEFT JOIN places 
+  ON users.id = places.userid 
+  WHERE users.id = ${id}
+`;
 
-//   db.query(query, (err, results) => {
-//     if (err) {
-//       return res.status(500).json({ error: err.message });
-//     }
-//     return res.json(results);
-//   });
+  db.query(query, (err, results) => {
+    if (err) {
+      return res.status(500).json({ error: err.message });
+    }
+    return res.json(results);
+  });
 };
 
 export const getInboxMessages = (req, res) => {
