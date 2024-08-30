@@ -3,7 +3,8 @@ import mysql from "mysql2";
 
 // Create a connection to the database
 const connection = mysql.createConnection({
-  host: process.env.DB_HOST || "localhost",
+  host: process.env.DB_HOST || "35.215.117.18",
+  port: process.env.DB_PORT || 3306,
   user: process.env.DB_USER || "utpqnjtvt2ptg",
   password: process.env.DB_PASSWORD || ":2Gi#1$e13+[",
   database: process.env.DB_NAME || "dbnoig9i2v1oo0",
